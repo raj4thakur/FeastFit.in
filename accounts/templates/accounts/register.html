@@ -1,0 +1,73 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Register | FeastFit</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Georgia:400,700|Roboto:400,500,700&display=swap">
+    <link rel="stylesheet" href="{% static 'css/register.css' %}">
+</head>
+<body>
+    <header>
+        Welcome to <span>FeastFit</span>
+    </header>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="hero-content">
+            <h1>Your Fitness Journey Starts Here</h1>
+            <p>Transform your life with personalized meal plans and expert tips.</p>
+            <a href="#" class="cta-button">Get Started</a>
+        </div>
+    </div>
+
+    <!-- Registration Section -->
+    <div class="registration-container">
+        <h2>Create Your Account</h2>
+        <p>Sign up today and take the first step toward your fitness goals.</p>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" placeholder="Enter your username">
+                <span class="tooltip">Enter a unique username</span>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email">
+                <span class="tooltip">We'll never share your email</span>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Create a strong password">
+                <span class="tooltip">Minimum 8 characters</span>
+            </div>
+            <button type="submit" class="submit-btn">Register</button>
+        </form>
+        <p class="link">Already have an account? <a href="{% url 'accounts:login' %}">Login here</a>.</p>
+    </div>
+
+    <!-- Why Join Us Section -->
+    <div class="testimonial-section">
+        <h3>Why Join FeastFit?</h3>
+        <div class="testimonial-container">
+            <div class="testimonial-card">
+                <img src="https://via.placeholder.com/60" alt="User">
+                <p>"FeastFit transformed my fitness journey. The meal plans are easy to follow and tasty!"</p>
+                <h4>Jane Doe</h4>
+            </div>
+            <div class="testimonial-card">
+                <img src="https://via.placeholder.com/60" alt="User">
+                <p>"I never knew how much food could impact my results. FeastFit made it simple!"</p>
+                <h4>John Smith</h4>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>&copy; 2025 FeastFit. All Rights Reserved. <a href="#">Privacy Policy</a></p>
+    </div>
+</body>
+</html>

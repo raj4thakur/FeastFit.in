@@ -1,0 +1,78 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ recipe.title }} - Recipe Details</title>
+    <link rel="stylesheet" href="{% static 'css/content.css' %}">
+</head>
+<body>
+    <header>
+        <div class="logo">FeastFit</div>
+        <nav>
+            <ul>
+                <!-- Add navigation links if needed -->
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <!-- Recipe Header -->
+        <div class="recipe-header">
+            <img src="{{ MEDIA_URL }}{{ recipe.image }}" alt="{{ recipe.title }}" class="recipe-image">
+            <div class="recipe-details">
+                <h2 class="heading">{{ recipe.title }}</h2>
+                <p><strong>Description:</strong> {{ recipe.description }}</p>
+                <p><strong>Cuisine:</strong> {{ recipe.cuisine }}</p>
+                <p><strong>Diet Type:</strong> {{ recipe.diet_type }}</p>
+                <p><strong>Prep Time:</strong> {{ recipe.preparation_time }} minutes</p>
+                <p><strong>Cook Time:</strong> {{ recipe.cooking_time }} minutes</p>
+                <p><strong>Servings:</strong> {{ recipe.servings }}</p>
+            </div>
+        </div>
+
+        <!-- Instructions -->
+        <h2 class="heading">Instructions</h2>
+        {% for step in recipe.steps %}
+            <p class="instruction-step"><strong>Step {{ forloop.counter }}:</strong> {{ step }}</p>
+        {% endfor %}
+
+        <!-- Ingredients -->
+        <h2 class="heading">Ingredients</h2>
+        <table class="ingredients-list">
+            <thead>
+                <tr>
+                    <th>Ingredients</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for ingredient in recipe.ingredients_list %}
+                <tr>
+                    <td>{{ ingredient }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <!-- Nutrition Info -->
+        <div class="nutrition-info">
+            <h2 class="heading">Nutrition</h2>
+            <p><strong>Calories:</strong> {{ recipe.calories }}</p>
+            <p><strong>Protein:</strong> {{ recipe.protein }}g</p>
+            <p><strong>Carbs:</strong> {{ recipe.carbs }}g</p>
+            <p><strong>Fat:</strong> {{ recipe.fat }}g</p>
+        </div>
+
+        <!-- Allergens -->
+        <div class="allergens-list">
+            <h2 class="heading">Allergens</h2>
+            <ul>
+                {% for allergen in recipe.allergens_list %}
+                    <li>{{ allergen }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

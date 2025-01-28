@@ -1,0 +1,56 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Login | FeastFit</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Georgia&display=swap">
+    <link rel='stylesheet' href="{% static 'css/login.css' %}">
+</head>
+<body>
+    <header>
+        FeastFit <span>Login</span>
+    </header>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <!-- Additional circles added here -->
+        <div class="circle one"></div>
+        <div class="circle two"></div>
+        <div class="circle three"></div>
+        <div class="circle four"></div>
+        <div class="circle five"></div>
+
+        <div class="hero-content">
+            <h1>Welcome Back to FeastFit</h1>
+            <p>Login to continue your journey towards a healthier lifestyle.</p>
+            <a href="#" class="cta-button">Start Now</a>
+        </div>
+    </div>
+
+    <!-- Login Form Section -->
+    <div class="login-container">
+        <h2>Login to Your Account</h2>
+        <p>Enter your credentials to access your account.</p>
+        <form method="POST" novalidate>
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" placeholder="Enter your email" required>
+                <div class="tooltip">Please enter a valid email.</div>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" placeholder="Enter your password" required>
+                <div class="tooltip">Your password must be at least 6 characters long.</div>
+            </div>
+            <button type="submit" class="submit-btn">Login</button>
+        </form>
+        <p class="link">Don't have an account? <a href="{% url 'accounts:register' %}">Register</a></p>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>&copy; 2025 FeastFit | All Rights Reserved</p>
+    </div>
+</body>
+</html>

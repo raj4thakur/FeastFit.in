@@ -1,0 +1,189 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f4f8;
+    color: #333;
+    font-size: 28px;
+    font-style: oblique;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: 400px;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #ecf0f1;
+    font-size: 1rem;
+    padding: 10px;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #bdc3c7;
+}
+
+nav ul li a img {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    border: 2px solid #ecf0f1;
+    transition: border-color 0.3s ease;
+}
+
+nav ul li a img:hover {
+    border-color: #bdc3c7;
+}
+.active{
+    background-color:#1f4195
+}
+.container {
+    max-width: 1400px;
+    margin: 100px auto 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.recipe-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 20px;
+}
+
+.recipe-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+.recipe-image:hover {
+    transform: scale(1.05);
+}
+
+.recipe-details {
+    flex-grow: 1;
+}
+
+.heading {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #e74c3c;
+    padding-bottom: 10px;
+    color: #e74c3c;
+}
+
+.instruction-step {
+    margin-bottom: 15px;
+    font-size: 2.1rem;
+    line-height: 1.6;
+}
+
+.ingredients-list {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.ingredients-list th, .ingredients-list td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.ingredients-list th {
+    background-color: #f2f2f2;
+    font-size: 2.2rem;
+}
+
+.nutrition-info, .allergens-list {
+    margin-top: 20px;
+    font-size: 1.1rem;
+}
+
+.nutrition-info p, .allergens-list ul li {
+    margin-bottom: 5px;
+}
+
+.allergens-list ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.recipe-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start; /* Align items to the top for better layout */
+    gap: 20px;
+}
+
+.recipe-image {
+    width: 100%; /* Ensure the image takes the full width of its container */
+    max-width: 400px; /* Set a maximum width to prevent oversized images */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 8px; /* Rounded corners for a sleek look */
+    margin: 0 auto; /* Center the image in its container */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a shadow for a subtle 3D effect */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effects */
+}
+
+.recipe-image:hover {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Intensify the shadow on hover */
+}
+
+.recipe-details {
+    flex-grow: 1; /* Ensure the details take the remaining space */
+    max-width: 500px; /* Prevent overly wide content */
+    margin: 0 auto; /* Center the details on smaller screens */
+}
+
+@media screen and (max-width: 768px) {
+    .recipe-header {
+        flex-direction: column; /* Stack the image and details vertically on smaller screens */
+    }
+
+    .recipe-image {
+        max-width: 100%; /* Allow the image to scale with the container */
+    }
+
+    .recipe-details {
+        text-align: center; /* Center-align text for a balanced look */
+    }
+}
+
